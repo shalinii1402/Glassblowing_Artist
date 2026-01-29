@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Aurora Glass Studio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .filter-btn {
+            background: none;
+            border: 2px solid var(--color-border);
+            padding: 8px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 0 5px 10px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            color: var(--color-text);
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background-color: var(--color-primary);
+            color: #fff;
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255, 183, 107, 0.4);
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            min-height: 400px;
+            /* Prevent collapse when filtering */
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            background: var(--color-card-bg);
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            aspect-ratio: 1 / 1.2;
+            /* Uniform vertical rectangle aspect ratio */
+            display: block;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .gallery-overlay h3 {
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.1s;
+            color: #ddd;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item:hover .gallery-overlay h3,
+        .gallery-item:hover .gallery-overlay p {
+            transform: translateY(0);
+        }
+
+        /* Animation class for filtering */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Aurora Glass Logo">
+                Aurora Glass
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home 1</a>
+                <a href="home-2.html" class="nav-link">Home 2</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="gallery.html" class="nav-link active">Gallery</a>
+                <a href="commissions.html" class="nav-link">Commissions</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="mobile-only-auth">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                </div>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="btn btn-outline" style="padding: 8px 20px; font-size: 0.8rem;">Login</a>
+                <a href="signup.html" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.8rem;">Sign Up</a>
+                <div class="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" style="padding-top: 120px;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Portfolio</h2>
+                <span></span>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 40px;">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="sculptures">Sculptures</button>
+                <button class="filter-btn" data-filter="vases">Vases</button>
+                <button class="filter-btn" data-filter="installations">Installations</button>
+                <button class="filter-btn" data-filter="custom">Custom</button>
+            </div>
+
+            <div class="gallery-container">
+                <!-- Vases -->
+                <div class="gallery-item vases">
+                    <img src="https://images.pexels.com/photos/1380914/pexels-photo-1380914.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        alt="Ruby Vase" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Ruby Nebula Vase</h3>
+                        <p>Blown Glass, 2025</p>
+                    </div>
+                </div>
+
+                <!-- Sculptures -->
+                <div class="gallery-item sculptures">
+                    <img src="https://images.pexels.com/photos/3644476/pexels-photo-3644476.jpeg"
+                        alt="Abstract Sculpture" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Fluid Motion</h3>
+                        <p>Hot Sculpted Glass</p>
+                    </div>
+                </div>
+
+                <!-- Installations -->
+                <div class="gallery-item installations">
+                    <img src="https://images.pexels.com/photos/12024171/pexels-photo-12024171.jpeg" alt="Chandelier"
+                        loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Starlight Chandelier</h3>
+                        <p>Foyer Installation</p>
+                    </div>
+                </div>
+
+                <!-- Custom -->
+                <div class="gallery-item custom">
+                    <img src="https://images.pexels.com/photos/20130542/pexels-photo-20130542.jpeg" alt="Custom Bowl"
+                        loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Royal Blue Bowl</h3>
+                        <p>Private Commission</p>
+                    </div>
+                </div>
+
+                <!-- Vases -->
+                <div class="gallery-item vases">
+                    <img src="https://images.pexels.com/photos/15509862/pexels-photo-15509862.jpeg" alt="Cyan Vase"
+                        loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Azure Flask</h3>
+                        <p>$350 - Available</p>
+                    </div>
+                </div>
+
+                <!-- Installations -->
+                <div class="gallery-item installations">
+                    <img src="https://images.pexels.com/photos/13705833/pexels-photo-13705833.jpeg" alt="Wall Art"
+                        loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Frozen Rain</h3>
+                        <p>Lobby Feature</p>
+                    </div>
+                </div>
+
+                <!-- Sculptures -->
+                <div class="gallery-item sculptures">
+                    <img src="https://images.pexels.com/photos/39396/hourglass-time-hours-sand-39396.jpeg"
+                        alt="Modern Sculpture" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Twisted Time</h3>
+                        <p>Award Winning Piece</p>
+                    </div>
+                </div>
+
+                <!-- Custom -->
+                <div class="gallery-item custom">
+                    <img src="https://images.pexels.com/photos/7270396/pexels-photo-7270396.jpeg" alt="Glass Set"
+                        loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Wedding Set</h3>
+                        <p>Bespoke Stemware</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inquiry CTA -->
+            <div class="cta-box" style="margin-top: 60px;">
+                <h2>See something you love?</h2>
+                <p>Some of these pieces are available for purchase, or can inspire your own custom commission.</p>
+                <a href="commissions.html" class="btn btn-outline" style="color: #fff; border-color: #fff;">Inquire
+                    Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="color: var(--color-footer-text); margin-bottom: 20px;">
+                        <img src="assets/logo.png" alt="Aurora Glass Logo">
+                        Aurora Glass
+                    </div>
+                    <p>Handcrafted glass art, forged in fire and passion. Elevating spaces with light and color.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="commissions.html">Commissions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Artisan Way, Glass City</li>
+                        <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                        <li><a href="mailto:hello@auroraglass.com"><i class="fas fa-envelope"></i>
+                                hello@auroraglass.com</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://pinterest.com" target="_blank"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Aurora Glass Studio. All Rights Reserved.
+            </div>
+        </div>
+        <button id="backToTop" class="back-to-top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

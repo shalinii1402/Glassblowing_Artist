@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process & Story | Aurora Glass Studio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header (Consistent) -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Aurora Glass Logo">
+                Aurora Glass
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home 1</a>
+                <a href="home-2.html" class="nav-link active">Home 2</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="commissions.html" class="nav-link">Commissions</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="mobile-only-auth">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                </div>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="btn btn-outline" style="padding: 8px 20px; font-size: 0.8rem;">Login</a>
+                <a href="signup.html" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.8rem;">Sign Up</a>
+                <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Alternate) -->
+    <section class="hero no-overlay"
+        style="background-image: url('https://images.unsplash.com/photo-1576014467576-2f0802c65a03?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); align-items: center; justify-content: center; text-align: center;">
+        <div class="container hero-content" style="text-align: center;">
+            <h1 style="font-size: 5rem;">The Art of Fire</h1>
+            <p>Discover the ancient techniques we use to turn raw elements into breathtaking beauty.</p>
+            <div class="hero-btns" style="justify-content: center;">
+                <a href="#process" class="btn btn-primary">Our Process</a>
+                <a href="about.html" class="btn btn-outline">Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Steps -->
+    <section id="process" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>From Sand to Soul</h2>
+                <span></span>
+            </div>
+            <div class="art-grid">
+                <div class="art-card" style="padding: 40px; text-align: center;">
+                    <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: 20px;">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>1. Melting</h3>
+                    <p>Silica sand, soda ash, and lime are melted in a furnace at 2,400°F until they become molten
+                        glass.</p>
+                </div>
+                <div class="art-card" style="padding: 40px; text-align: center;">
+                    <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: 20px;">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>2. Blowing</h3>
+                    <p>Using a blowpipe, the artist gathers glass and carefully blows air to create the initial bubble
+                        form.</p>
+                </div>
+                <div class="art-card" style="padding: 40px; text-align: center;">
+                    <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: 20px;">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>3. Shaping</h3>
+                    <p>Tools like jacks and shears are used to shape the molten glass while constant rotation maintains
+                        symmetry.</p>
+                </div>
+                <div class="art-card" style="padding: 40px; text-align: center;">
+                    <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: 20px;">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>4. Annealing</h3>
+                    <p>The piece is slowly cooled in a kiln over several hours or days to prevent cracking and ensure
+                        durability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Artworks Carousel (Simple Horizontal Scroll) -->
+    <section class="section" style="background-color: var(--color-bg-secondary);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trending This Season</h2>
+                <span></span>
+            </div>
+            <div
+                style="display: flex; gap: 30px; overflow-x: auto; padding-bottom: 20px; scroll-snap-type: x mandatory;">
+                <!-- Items -->
+                <div class="art-card" style="min-width: 300px; scroll-snap-align: start;">
+                    <div class="art-image"><img
+                            src="https://images.pexels.com/photos/17573843/pexels-photo-17573843.jpeg" alt="Item"></div>
+                    <div class="art-info">
+                        <h3>Sunburst Vase</h3>
+                        <p>$450</p>
+                    </div>
+                </div>
+                <div class="art-card" style="min-width: 300px; scroll-snap-align: start;">
+                    <div class="art-image"><img
+                            src="https://images.pexels.com/photos/17161076/pexels-photo-17161076.jpeg" alt="Item"></div>
+                    <div class="art-info">
+                        <h3>Emerald Bowl</h3>
+                        <p>$320</p>
+                    </div>
+                </div>
+                <div class="art-card" style="min-width: 300px; scroll-snap-align: start;">
+                    <div class="art-image"><img src="https://images.pexels.com/photos/7581822/pexels-photo-7581822.jpeg"
+                            alt="Item"></div>
+                    <div class="art-info">
+                        <h3>Obsidian Sculpture</h3>
+                        <p>$890</p>
+                    </div>
+                </div>
+                <div class="art-card" style="min-width: 300px; scroll-snap-align: start;">
+                    <div class="art-image"><img src="https://images.pexels.com/photos/4641452/pexels-photo-4641452.jpeg"
+                            alt="Item"></div>
+                    <div class="art-info">
+                        <h3>Azure Drop</h3>
+                        <p>$210</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio Environment -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Inside the Studio</h2>
+                <span></span>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <!-- Images Row -->
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;">
+                    <img src="https://images.pexels.com/photos/8063801/pexels-photo-8063801.jpeg" alt="Studio"
+                        style="width: 48%; min-width: 280px; height: 300px; object-fit: cover; border-radius: var(--radius-card); flex: 1;">
+                    <img src="https://images.pexels.com/photos/30767496/pexels-photo-30767496.jpeg" alt="Tools"
+                        style="width: 48%; min-width: 280px; height: 300px; object-fit: cover; border-radius: var(--radius-card); flex: 1;">
+                </div>
+
+                <!-- Content -->
+                <h3 style="margin-bottom: 15px;">Where Creativity Meets Heat</h3>
+                <p style="margin-bottom: 15px; max-width: 700px; margin-left: auto; margin-right: auto;">Our studio is a
+                    place of intense focus and creative chaos. Located
+                    in the heart of the artisan district, we welcome visitors to watch our daily demonstrations.</p>
+                <p style="margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">Every tool has
+                    a history, and every furnace burn tells a story of
+                    dedication.</p>
+                <a href="contact.html" class="btn btn-primary">Book a Studio Tour</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="section" style="background-color: var(--color-bg-secondary);">
+        <div class="container">
+            <div class="cta-box" style="background: var(--color-footer-bg); color: var(--color-footer-text);">
+                <h2>Join the Collector's Circle</h2>
+                <p>Be the first to know about new collection drops, exhibition dates, and exclusive studio events.</p>
+                <form style="max-width: 400px; margin: 0 auto; display: flex; gap: 10px;">
+                    <input type="email" placeholder="Your Email Address" class="form-control"
+                        style="border-radius: 50px;" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Consistent) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="color: var(--color-footer-text); margin-bottom: 20px;">
+                        <img src="assets/logo.png" alt="Aurora Glass Logo">
+                        Aurora Glass
+                    </div>
+                    <p>Handcrafted glass art, forged in fire and passion. Elevating spaces with light and color.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="commissions.html">Commissions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Artisan Way, Glass City</li>
+                        <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                        <li><a href="mailto:hello@auroraglass.com"><i class="fas fa-envelope"></i>
+                                hello@auroraglass.com</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://pinterest.com" target="_blank"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Aurora Glass Studio. All Rights Reserved.
+            </div>
+        </div>
+        <button id="backToTop" class="back-to-top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
