@@ -304,4 +304,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ==========================================
+    // 11. Carousel Logic (Home 2)
+    // ==========================================
+    const carousels = document.querySelectorAll('.carousel-wrapper');
+    carousels.forEach(wrapper => {
+        const container = wrapper.querySelector('.carousel-container');
+        const leftBtn = wrapper.querySelector('.left-btn');
+        const rightBtn = wrapper.querySelector('.right-btn');
+
+        if (container && leftBtn && rightBtn) {
+            leftBtn.addEventListener('click', () => {
+                container.scrollBy({ left: -320, behavior: 'smooth' });
+            });
+
+            rightBtn.addEventListener('click', () => {
+                container.scrollBy({ left: 320, behavior: 'smooth' });
+            });
+        }
+    });
+
 });

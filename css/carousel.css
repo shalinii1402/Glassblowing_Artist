@@ -1,0 +1,82 @@
+/* Carousel Styles */
+.carousel-wrapper {
+    position: relative;
+    padding: 0 20px;
+    /* Space for buttons */
+}
+
+.carousel-container {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    /* Hide Scrollbar */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    opacity: 0.8;
+}
+
+.carousel-btn:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.left-btn {
+    left: 0px;
+    /* Aligned to edge */
+}
+
+.right-btn {
+    right: 0px;
+    /* Aligned to edge */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .carousel-wrapper {
+        padding: 0;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+        background: rgba(255, 183, 107, 0.9);
+    }
+
+    .left-btn {
+        left: -10px;
+    }
+
+    .right-btn {
+        right: -10px;
+    }
+}

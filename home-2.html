@@ -11,6 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -28,6 +29,7 @@
                 <a href="home-2.html" class="nav-link active">Home 2</a>
                 <a href="about.html" class="nav-link">About Us</a>
                 <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="services.html" class="nav-link">Services</a>
                 <a href="commissions.html" class="nav-link">Commissions</a>
                 <a href="contact.html" class="nav-link">Contact</a>
                 <div class="mobile-only-auth">
@@ -45,11 +47,12 @@
     </header>
 
     <!-- Hero Section (Alternate) -->
-    <section class="hero no-overlay"
-        style="background-image: url('https://images.unsplash.com/photo-1576014467576-2f0802c65a03?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); align-items: center; justify-content: center; text-align: center;">
-        <div class="container hero-content" style="text-align: center;">
-            <h1 style="font-size: 5rem;">The Art of Fire</h1>
-            <p>Discover the ancient techniques we use to turn raw elements into breathtaking beauty.</p>
+    <!-- Hero Section (Alternate) -->
+    <section class="hero" style="background-image: url('assets/home2-hero.png'); justify-content: center;">
+        <div class="container hero-content">
+            <h1 style="color: #ffffff; text-shadow: 0 4px 10px rgba(0,0,0,0.5);">The Art of Fire</h1>
+            <p style="color: #ffffff; opacity: 1; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Discover the ancient
+                techniques we use to turn raw elements into breathtaking beauty.</p>
             <div class="hero-btns" style="justify-content: center;">
                 <a href="#process" class="btn btn-primary">Our Process</a>
                 <a href="about.html" class="btn btn-outline">Our Story</a>
@@ -108,41 +111,50 @@
                 <h2>Trending This Season</h2>
                 <span></span>
             </div>
-            <div
-                style="display: flex; gap: 30px; overflow-x: auto; padding-bottom: 20px; scroll-snap-type: x mandatory;">
-                <!-- Items -->
-                <div class="art-card" style="min-width: 300px; scroll-snap-align: start;">
-                    <div class="art-image"><img
-                            src="https://images.pexels.com/photos/17573843/pexels-photo-17573843.jpeg" alt="Item"></div>
-                    <div class="art-info">
-                        <h3>Sunburst Vase</h3>
-                        <p>$450</p>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn left-btn" aria-label="Scroll Left"><i
+                        class="fas fa-chevron-left"></i></button>
+                <div class="carousel-container" id="trendingCarousel">
+                    <!-- Items -->
+                    <div class="art-card" style="min-width: 300px; scroll-snap-align: start;">
+                        <div class="art-image"><img
+                                src="https://images.pexels.com/photos/17573843/pexels-photo-17573843.jpeg" alt="Item">
+                        </div>
+                        <div class="art-info">
+                            <h3>Sunburst Vase</h3>
+                            <p>$450</p>
+                        </div>
+                    </div>
+                    <div class="art-card" style="min-width: 300px; scroll-snap-align: start;">
+                        <div class="art-image"><img
+                                src="https://images.pexels.com/photos/17161076/pexels-photo-17161076.jpeg" alt="Item">
+                        </div>
+                        <div class="art-info">
+                            <h3>Emerald Bowl</h3>
+                            <p>$320</p>
+                        </div>
+                    </div>
+                    <div class="art-card" style="min-width: 300px; scroll-snap-align: start;">
+                        <div class="art-image"><img
+                                src="https://images.pexels.com/photos/7581822/pexels-photo-7581822.jpeg" alt="Item">
+                        </div>
+                        <div class="art-info">
+                            <h3>Obsidian Sculpture</h3>
+                            <p>$890</p>
+                        </div>
+                    </div>
+                    <div class="art-card" style="min-width: 300px; scroll-snap-align: start;">
+                        <div class="art-image"><img
+                                src="https://images.pexels.com/photos/4641452/pexels-photo-4641452.jpeg" alt="Item">
+                        </div>
+                        <div class="art-info">
+                            <h3>Azure Drop</h3>
+                            <p>$210</p>
+                        </div>
                     </div>
                 </div>
-                <div class="art-card" style="min-width: 300px; scroll-snap-align: start;">
-                    <div class="art-image"><img
-                            src="https://images.pexels.com/photos/17161076/pexels-photo-17161076.jpeg" alt="Item"></div>
-                    <div class="art-info">
-                        <h3>Emerald Bowl</h3>
-                        <p>$320</p>
-                    </div>
-                </div>
-                <div class="art-card" style="min-width: 300px; scroll-snap-align: start;">
-                    <div class="art-image"><img src="https://images.pexels.com/photos/7581822/pexels-photo-7581822.jpeg"
-                            alt="Item"></div>
-                    <div class="art-info">
-                        <h3>Obsidian Sculpture</h3>
-                        <p>$890</p>
-                    </div>
-                </div>
-                <div class="art-card" style="min-width: 300px; scroll-snap-align: start;">
-                    <div class="art-image"><img src="https://images.pexels.com/photos/4641452/pexels-photo-4641452.jpeg"
-                            alt="Item"></div>
-                    <div class="art-info">
-                        <h3>Azure Drop</h3>
-                        <p>$210</p>
-                    </div>
-                </div>
+                <button class="carousel-btn right-btn" aria-label="Scroll Right"><i
+                        class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
@@ -207,6 +219,7 @@
                     <ul class="footer-links">
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="services.html">Services</a></li>
                         <li><a href="commissions.html">Commissions</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
