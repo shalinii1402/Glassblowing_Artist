@@ -610,23 +610,26 @@ img {
 
     .nav-menu {
         display: none;
-        /* Mobile menu needed */
         position: fixed;
-        /* Fixed to ensure it stays in viewport */
         top: 70px;
         left: 0;
         width: 100%;
         height: calc(100vh - 70px);
         /* Full height minus header */
+        max-height: calc(100vh - 70px);
+        /* Ensure it doesn't exceed viewport */
         background-color: var(--color-bg);
         flex-direction: column;
-        justify-content: center;
-        /* Center items vertically */
-        padding: 20px;
-        gap: 15px;
-        /* Reduce gap */
+        justify-content: flex-start;
+        align-items: stretch;
+        padding: 20px 20px 15px 20px;
+        /* Reduced top padding from 30px to 20px */
+        gap: 12px;
+        /* Reduced gap from 20px to 12px for better fit */
         box-shadow: none;
-        overflow-y: auto;
+        overflow-y: hidden;
+        /* Prevent scrolling */
+        overflow-x: hidden;
     }
 
     .nav-menu.active {
@@ -636,46 +639,312 @@ img {
     .mobile-toggle {
         display: block;
     }
+
+    /* Mobile menu link styles - optimized for no-scroll */
+    .nav-link {
+        text-align: center;
+        padding: 10px 0;
+        /* Reduced from 12px to 10px */
+        width: 100%;
+        font-size: 1rem;
+        /* Reduced from 1.1rem to 1rem */
+        line-height: 1.2;
+        /* Tighter line height */
+        flex-shrink: 0;
+        /* Prevent shrinking */
+    }
+
+    /* Mobile auth buttons container - optimized spacing */
+    .mobile-only-auth {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        /* Reduced from 15px to 10px */
+        margin-top: 5px;
+        /* Reduced from 10px to 5px */
+        align-items: center;
+        width: 100%;
+        padding-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .mobile-only-auth .btn {
+        width: 100%;
+        max-width: 220px;
+        /* Slightly reduced from 250px */
+        font-size: 0.9rem;
+        /* Reduced from 0.95rem */
+        padding: 10px 18px;
+        /* Reduced from 12px 20px */
+        text-align: center;
+        line-height: 1.2;
+    }
+}
+
+/* Tablet View - Services Page Center Alignment */
+@media (max-width: 1024px) {
+
+    /* Use Grid for precise control over layout order */
+    .commission-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto auto auto auto;
+        /* 4 rows: heading, image, paragraph, bullets */
+        gap: 0;
+        align-items: start;
+        justify-items: center;
+        width: 100%;
+    }
+
+    /* Content column - will be split into separate grid items */
+    .commission-content-col {
+        display: contents;
+        /* This makes children direct grid items */
+    }
+
+    /* Image column - always second */
+    .commission-image-col {
+        grid-row: 2;
+        width: 100%;
+        max-width: 700px;
+        margin: 30px 0;
+    }
+
+    /* Heading - always first */
+    .commission-content-col .section-title {
+        grid-row: 1;
+        text-align: center !important;
+        width: 100%;
+        max-width: 800px;
+        margin-bottom: 0;
+    }
+
+    .commission-content-col .section-title span {
+        margin: 0 auto !important;
+    }
+
+    /* Paragraph - always third */
+    .commission-content-col>p {
+        grid-row: 3;
+        text-align: center;
+        max-width: 700px;
+        margin: 30px auto 0 auto;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    /* Bullets - always fourth */
+    .commission-content-col>ul {
+        grid-row: 4;
+        text-align: left;
+        /* Left align within list for consistent bullet positioning */
+        list-style: none !important;
+        padding: 0 !important;
+        max-width: 600px;
+        width: auto;
+        /* Auto width so list only takes needed space */
+        display: inline-block;
+        /* Inline-block allows the list to be centered */
+        margin: 25px 0 0 0;
+        /* Remove auto margins since we're using text-align */
+    }
+
+    /* Center the list using grid's justify-items */
+    .commission-grid {
+        justify-items: center;
+        /* This centers all grid items including the inline-block ul */
+    }
+
+    .commission-content-col ul li {
+        text-align: left;
+        /* Left align text for consistent layout */
+        padding: 0;
+        margin-bottom: 12px;
+        display: block;
+        width: 100%;
+        position: relative;
+        padding-left: 25px;
+        /* Fixed space for bullet - ensures alignment */
+        line-height: 1.6;
+        white-space: normal;
+        /* Ensure text wraps properly */
+    }
+
+    .commission-content-col ul li::before {
+        content: "•";
+        color: var(--color-primary);
+        font-weight: bold;
+        font-size: 1.2em;
+        /* Slightly larger bullet */
+        position: absolute;
+        left: 0;
+        /* All bullets at exact same position */
+        top: 0;
+        width: 20px;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    /* Responsive image styling */
+    .commission-image-col img {
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+        max-height: 450px;
+        object-fit: cover;
+        border-radius: var(--radius-card);
+        box-shadow: var(--shadow-soft);
+    }
+
+    /* Spacing between sections */
+    .commission-grid {
+        margin-bottom: 50px;
+    }
+
+    /* Handle alternating layouts - ensure consistent order */
+    .commission-grid .commission-image-col:first-child {
+        grid-row: 2;
+        /* Image always second, even if first in HTML */
+    }
+
+    .commission-grid .commission-content-col:first-child .section-title {
+        grid-row: 1;
+        /* Heading always first */
+    }
 }
 
 @media (max-width: 768px) {
+
 
     /* Hide desktop auth buttons on mobile */
     .nav-actions .btn {
         display: none;
     }
 
-    .mobile-only-auth {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 20px;
-        /* Reduced gap instead of auto */
-        align-items: center;
+    /* Ensure proper width and no overflow */
+    body {
         width: 100%;
-        padding-bottom: 20px;
+        max-width: 100vw;
+        overflow-x: hidden;
     }
 
-    .mobile-only-auth .btn {
+    .container {
         width: 100%;
-        max-width: 200px;
-        font-size: 0.9rem;
-        padding: 10px;
-        text-align: center;
+        max-width: 100%;
+        padding: 0 15px;
+        /* Slightly reduce padding for more space */
     }
 
     .hero h1 {
         font-size: 2.5rem;
     }
 
+
     /* Contact Page Grid Fix */
     .section .container>div[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
         gap: 40px !important;
     }
+
+    /* Join the Collector's Circle - Mobile Fix */
+    .cta-box {
+        padding: 30px 20px !important;
+        /* Reduce horizontal and vertical padding */
+        overflow: hidden;
+        /* Prevent any overflow */
+    }
+
+    .cta-box h2 {
+        font-size: 1.8rem !important;
+        /* Reduce heading size */
+        word-wrap: break-word;
+        /* Ensure text wraps */
+        overflow-wrap: break-word;
+        line-height: 1.3;
+        margin-bottom: 15px !important;
+    }
+
+    .cta-box p {
+        font-size: 0.95rem !important;
+        /* Reduce description font size */
+        margin-bottom: 20px !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.5;
+        max-width: 100% !important;
+        /* Use full width available */
+    }
+
+    /* Newsletter Form - Stack Vertically */
+    .cta-box form {
+        max-width: 100% !important;
+        /* Use full width */
+        display: flex !important;
+        flex-direction: column !important;
+        /* Stack vertically */
+        gap: 15px !important;
+        /* Add spacing between input and button */
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .cta-box form input[type="email"] {
+        width: 100% !important;
+        /* Full width input */
+        max-width: 100% !important;
+        box-sizing: border-box;
+        font-size: 0.9rem !important;
+        padding: 12px 16px !important;
+        border-radius: 50px !important;
+    }
+
+    .cta-box form input[type="email"]::placeholder {
+        font-size: 0.85rem;
+        /* Ensure placeholder is visible */
+    }
+
+    .cta-box form button[type="submit"] {
+        width: 100% !important;
+        /* Full width button */
+        max-width: 100% !important;
+        box-sizing: border-box;
+        padding: 12px 24px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Extra Small Mobile - Further optimize menu spacing */
+@media (max-width: 600px) {
+    .nav-menu {
+        padding: 15px 15px 10px 15px;
+        /* Further reduced padding */
+        gap: 8px;
+        /* Tighter gap for small screens */
+    }
+
+    .nav-link {
+        padding: 8px 0;
+        /* Reduced from 10px */
+        font-size: 0.95rem;
+        /* Slightly smaller font */
+    }
+
+    .mobile-only-auth {
+        gap: 8px;
+        /* Tighter gap between auth buttons */
+        margin-top: 3px;
+    }
+
+    .mobile-only-auth .btn {
+        padding: 9px 16px;
+        /* Slightly reduced padding */
+        font-size: 0.85rem;
+        max-width: 200px;
+    }
 }
 
 /* Animations */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
