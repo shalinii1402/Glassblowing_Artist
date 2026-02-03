@@ -306,9 +306,9 @@ img {
     font-size: 4rem;
     margin-bottom: 20px;
     animation: fadeInUp 0.8s ease-out;
-    color: var(--color-heading);
+    color: #ffffff !important;
     transition: color 0.4s ease, text-shadow 0.4s ease;
-    text-shadow: var(--hero-text-shadow);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6) !important;
 }
 
 .hero p {
@@ -332,8 +332,8 @@ img {
 
 /* Dynamic Outline Button in Hero */
 .hero .btn-outline {
-    color: var(--color-heading) !important;
-    border-color: var(--color-heading) !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
 }
 
 .hero .btn-outline:hover {
