@@ -1,14 +1,14 @@
 /* Carousel Styles */
 .carousel-wrapper {
     position: relative;
-    padding: 0 20px;
-    /* Space for buttons */
+    padding: 0;
 }
 
 .carousel-container {
     display: flex;
     gap: 30px;
     overflow-x: auto;
+    justify-content: center;
     padding-bottom: 20px;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
